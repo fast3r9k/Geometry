@@ -1,6 +1,5 @@
 ﻿using System;
 using Geometry.Entities;
-using Geometry.Managers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GeometryTests.Managers
@@ -14,11 +13,10 @@ namespace GeometryTests.Managers
 
             // Arrange
             var circle = new Circle(23.7);
-            var manager = new FigureManager();
             var expected = 1764.60;
 
             //Act
-            manager.SetSquare(circle);
+            circle.SetSquare();
 
             // Assert
             Assert.AreEqual(expected, circle.Square);
@@ -31,10 +29,9 @@ namespace GeometryTests.Managers
 
             // Arrange
             var circle = new Circle(-1);
-            var manager = new FigureManager();
 
             //Act
-            manager.SetSquare(circle);
+            circle.SetSquare();
 
             // Assert
             Assert.Fail();
@@ -45,13 +42,12 @@ namespace GeometryTests.Managers
         {
 
             // Arrange
-            var triangle = new Triangle(4.5,6,7.5);
-            var manager = new FigureManager();
+            var triangle = new Triangle(4.5, 6, 7.5);
             var expectedSquare = 13.5;
             var expectedIsRight = true;
 
             //Act
-            manager.SetSquare(triangle);
+            triangle.SetSquare();
 
             // Assert
             Assert.AreEqual(expectedSquare, triangle.Square);
@@ -63,13 +59,12 @@ namespace GeometryTests.Managers
         {
 
             // Arrange
-            var triangle = new Triangle(4,6,7);
-            var manager = new FigureManager();
+            var triangle = new Triangle(4, 6, 7);
             var expectedSquare = 11.98;
             var expectedIsRight = false;
 
             //Act
-            manager.SetSquare(triangle);
+            triangle.SetSquare();
 
             // Assert
             Assert.AreEqual(expectedSquare, triangle.Square);
@@ -82,11 +77,10 @@ namespace GeometryTests.Managers
         {
 
             // Arrange
-            var triangle = new Triangle(0,6,7);
-            var manager = new FigureManager();
+            var triangle = new Triangle(0, 6, 7);
 
             //Act
-            manager.SetSquare(triangle);
+            triangle.SetSquare();
 
             // Assert
             Assert.Fail();

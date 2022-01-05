@@ -10,11 +10,11 @@ namespace Geometry.Entities
         public Circle(double radius)
         {
             Radius = radius;
-            Validate();
+            ValidateSides();
             Type = FigureType.Circle;
         }
 
-        private void Validate()
+        public sealed override void ValidateSides()
         {
             if (Radius <= 0)
                 throw new ArgumentException("Radius must be greater than zero");
